@@ -16,8 +16,8 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ get_url(path="/css/main.css", trailing_slash=false) | safe }}" />
 		<link id="dark-scheme" rel="stylesheet" type="text/css" href="{{ get_url(path="/css/dark.css", trailing_slash=false) | safe }}" />
 
-		<script src="{{ config.base_url }}/js/feather.min.js"></script>
-		<script src="{{ config.base_url }}/js/main.js"></script>
+		<script src="{{ get_url(path="/js/feather.min.js", trailing_slash=false) | safe }}"></script>
+		<script src="{{ get_url(path="/js/main.js", trailing_slash=false) | safe }}"></script>
 
 		{% if config.generate_feed %}
 			<link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">

@@ -1,7 +1,7 @@
 name = "zink"
 title ="Zink"
 description = "Crisp, minimal personal website and blog theme for Zola."
-base_url = "https://zink.netflify.com"
+base_url = "https://zola-ink.netlify.com"
 license = "MIT"
 generate_feed = true
 taxonomies = [
