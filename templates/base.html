@@ -12,9 +12,9 @@
 
 		<!-- CSS -->
 		<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" media="screen" href="{{ config.base_url }}/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="{{ config.base_url }}/css/main.css" />
-		<link id="dark-scheme" rel="stylesheet" type="text/css" href="{{ config.base_url }}/css/dark.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ get_url(path="/css/normalize.css", trailing_slash=false) | safe }}" />
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ get_url(path="/css/main.css", trailing_slash=false) | safe }}" />
+		<link id="dark-scheme" rel="stylesheet" type="text/css" href="{{ get_url(path="/css/dark.css", trailing_slash=false) | safe }}" />
 
 		<script src="{{ config.base_url }}/js/feather.min.js"></script>
 		<script src="{{ config.base_url }}/js/main.js"></script>
