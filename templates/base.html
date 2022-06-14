@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+		<!-- Enable responsiveness on mobile devices-->
+		<!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+		<title>{% block title %}{{ config.title }}{% endblock title %}</title>
+
+		<!-- CSS -->
+		<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ config.base_url }}/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ config.base_url }}/css/main.css" />
+		<link id="dark-scheme" rel="stylesheet" type="text/css" href="{{ config.base_url }}/css/dark.css" />
+
+		<script src="{{ config.base_url }}/js/feather.min.js"></script>
+		<script src="{{ config.base_url }}/js/main.js"></script>
+
+		{% if config.generate_feed %}
+			<link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+		{% endif %}
+
+		{% block extra_head %}
+		{% endblock extra_head %}
+	</head>
+
+	<body>
+		<div class = "container wrapper">
+		<div class="header">
+			{% if config.extra.zink_avatar %}
+				<div class="avatar">
+					<a href="{{ config.base_url }}">
+						<img src="{{ config.extra.zink_avatar | safe }}" alt="{{ config.title }}" />
+					</a>
+				</div>
+			{% endif %}
+			<h1 class="site-title"><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
+			<div class="site-description">
+				{% if config.description %}
+					<p>{{ config.description}}</p>
+				{% endif %}
+				<nav class="nav social">
+					<ul class="flat">
+						{% block social_navbar %}
+						{% for link in config.extra.zink_social %}
+						<li><a href="{{ link.url }}" title="{{ link.name }}"><i data-feather="{{ link.icon }}"></i></a></li>
+						{% endfor %}
+						{% endblock social_navbar %}
+						<li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li>
+					</ul>
+				</nav>
+			</div>
+		
+			<nav class="nav">
+				<ul class="flat">
+					{% block navbar %}
+					{% for link in config.extra.zink_links %}
+					<li><a href="{{ link.url }}" title="{{ link.name }}">{{ link.name }}</a></li>
+					{% endfor %}
+					{% endblock navbar %}
+				</ul>
+			</nav>
+		</div>
+		{% block content %}
+		{% endblock content %}
+		</div>
+		<div class="footer wrapper">
+			<div>
+				{{ now() | date(format="%Y") }} © {{ config.title }} | 
+				<a target="" href="{{ config.extra.zink_url }}" >{{ config.title }}</a> on <a target="_blank" href="https://getzola.org/">Zola</a>
+			</div>
+		</footer>
+		<script>feather.replace();</script>
+		{% block analytics %}
+		{% endblock analytics %}
+	</body>
+
+</html>

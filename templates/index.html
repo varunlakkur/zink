@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="post">
+	<h1 class="post-title">Hey There!</h1>
+	<p class="lead">
+		I am stardust in a universe full of stars!
+	</p>
+    <blockquote>
+        <p>The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself.</p>
+        — <cite>Carl Sagan</cite>
+    </blockquote>
+</div>
+
+{% set section_item = get_section(path="blog/_index.md") %}
+{% if config.extra.zink_recent | default(value=true) %}
+<div class="recent-posts">
+	<div class="posts">
+	<div class="post">
+	  <h2>Recent Posts</h2>
+	  <ul>
+		{% for page in section_item.pages | slice(end=config.extra.zink_recent_items | default(value=2)) %}
+		<div class="matter">
+			<li>
+				<span class="date">{{ page.date | date(format='%e %b %Y') }}</span>
+				<h4 class="title small">
+					<a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+				</h4>
+		</li>
+		</div>
+		{% endfor %}
+	</ul>
+	</div>
+  </div>
+</div>
+{%- endif %}
+
+{% endblock content %}

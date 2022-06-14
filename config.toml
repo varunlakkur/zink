@@ -1,0 +1,46 @@
+name = "zink"
+title ="Zink"
+description = "Crisp, minimal personal website and blog theme for Zola."
+base_url = "https://zink.netflify.com"
+license = "MIT"
+generate_feed = true
+taxonomies = [
+    {name = "tags", lang = "en", rss = true},
+]
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
+
+
+[markdown]
+highlight_code = true
+highlight_theme = "zenburn"
+
+
+[author]
+name = "Varun L A"
+homepage = "https://varunla.xyz"
+
+[original]
+author =  "knadh"
+homepage = "https://nadh.in"
+repo = "https://www.github.com/knadh/hugo-ink"
+
+
+[extra]
+zink_url="https://github.com/varunlakkur/zink"
+zink_avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
+zink_social = [
+    {url = "https://github.com/varunlakkur/zola", name = "Github", icon = "github"},
+    {url = "atom.xml", name = "RSS", icon = "rss"},
+]
+zink_links = [
+    {url = "/", name = "Home"},
+    {url = "/blog", name = "Blog"},
+    {url = "/about", name = "About"},
+    {url = "/tags", name = "Tags"},
+]
+
+zink_recent = true
+zink_recent_items = 5
