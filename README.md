@@ -10,6 +10,9 @@ The name is inspired by `zola` and `ink`.
 ### Dark theme
 ![blog-dark](images/blog-dark.png)
 
+## Demo
+https://zola-ink.netlify.app/
+
 ## Installation
 
 1. Download the theme
